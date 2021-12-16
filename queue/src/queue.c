@@ -23,7 +23,7 @@ int is_empty_queue(Queue *q) {
 }
 
 void queue_empty_error() {
-    printf("Queue is empty.\n");
+    printf("This queue operation is invalid on an empty queue.\n");
     abort();
 }
 
@@ -43,6 +43,7 @@ void double_queue_size(Queue *q) {
     }
     q->back = q->back + oldSize;  /* update q->back */
 }
+
 void enqueue(int item, Queue *q) {
     q->array[q->back] = item;
     q->back = (q->back + 1) % q->size;
@@ -77,6 +78,7 @@ int amt_elements(Queue *q) {
 }
 
 void destroy_queue(Queue *q) {
+    if (q == NULL) return;
     if (q->array != NULL) free(q->array);
-    if (q != NULL) free(q);
+    free(q);
 }

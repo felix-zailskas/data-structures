@@ -11,6 +11,33 @@
 
 /**
  * A queue storing integers.
+ * This representation of a queue uses an array. There is one value pointing
+ * to the front of the queue and one pointing to the back.
+ *
+ * To enqueue a value in the queue we store the value at the position in the
+ * array to which the back variable points. This variable must always point
+ * to the back of the queue. This means that if the array is completely filled
+ * after enqueuing the new value we must double the queue size. For this the
+ * data array is reallocated and the values are shifted so that front and back
+ * pointers are still valid.
+ *
+ * To dequeue a value from the queue we return the value stored in the data
+ * array at the position of the front pointer. Afterwards we increase the front
+ * pointer by one to indicate that one position in the data array has cleared.
+ *
+ * For peeking we just return the value at the front of the queue without changing
+ * the front pointer of the queue.
+ *
+ * Any edit of the front and back pointers must be accompanied by a modulo
+ * operation with the size of the data array. This increases space efficiency
+ * since we can fill up the queue from the front again when there is space.
+ * This means that the value of the front can be both smaller and larger than
+ * the one for the back.
+ *
+ * We can determine the amount of elements in the queue by examining the difference
+ * between the front and back value.
+ *
+ * The queue is empty exactly when the front and back values are equal.
  */
 typedef struct Queue {
     int *array;

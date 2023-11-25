@@ -1,8 +1,11 @@
 //
-// Created by Felix Zailskas on 19.06.21.
+// Created by Felix Zailskas
 //
 
-#ifndef DATA_STRUCTURES_ALLOCATE_H
-#define DATA_STRUCTURES_ALLOCATE_H
+#ifndef ALLOCATE_H
+#define ALLOCATE_H
 
-#endif //DATA_STRUCTURES_ALLOCATE_H
+void *safe_malloc(int s, int t);
+void *safe_calloc(int s, int t);
+
+#endif

@@ -3,27 +3,22 @@
 //
 
 #include "../src/queue.h"
+#include "../../testing/testing.h"
 
-int test(int testing) {
-    if (testing) {
-        printf("Test Passed.\n");
-        return 1;
-    }
-    printf("Test Failed.\n");
-    return 0;
-}
-
-void pass_message(int from, int passed) {
-    printf("Passed %d/%d cases.\n\n", passed, from);
-}
 
 void test_make_queue() {
     int tests = 0;
     printf("Create a queue with no error.\n");
     Queue *q = new_queue(5);
     tests += test(q != NULL);
+    printf("Queue should have size 5.\n");
+    tests += test(q->size == 5);
+    printf("Queue should be empty.\n");
+    tests += test(is_empty_queue(q));
+    printf("Queue should have 0 elements.\n");
+    tests += test(amt_elements(q) == 0);
     destroy_queue(q);
-    pass_message(1, tests);
+    pass_message(4, tests);
 }
 
 void test_enqueue() {
@@ -151,7 +146,7 @@ void test_peek() {
     printf("Peek should still give -7.\n");
     tests += test(peek_queue(q) == -7);
 
-    printf("Queue should have 1 elements.\n");
+    printf("Queue should have 1 element.\n");
     tests += test(amt_elements(q) == 1);
 
     pass_message(5, tests);

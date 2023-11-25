@@ -3,7 +3,7 @@
 //
 
 #include "../../testing/testing.h"
-#include "../src/stack.h"
+#include "../stack.h"
 
 void test_make_stack() {
   int tests = 0;

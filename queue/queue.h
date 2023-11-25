@@ -1,13 +1,12 @@
-//
-// Created by Felix Zailskas
-//
+// SPDX-License-Identifier: MIT
+// SPDX-FileCopyrightText: 2023 Felix Zailskas <felixzailskas@gmail.com>
 
 #ifndef QUEUE_H
 #define QUEUE_H
 
-#include <stdlib.h>
-#include <stdio.h>
 #include <assert.h>
+#include <stdio.h>
+#include <stdlib.h>
 
 /**
  * A queue storing integers.
@@ -25,8 +24,8 @@
  * array at the position of the front pointer. Afterwards we increase the front
  * pointer by one to indicate that one position in the data array has cleared.
  *
- * For peeking we just return the value at the front of the queue without changing
- * the front pointer of the queue.
+ * For peeking we just return the value at the front of the queue without
+ * changing the front pointer of the queue.
  *
  * Any edit of the front and back pointers must be accompanied by a modulo
  * operation with the size of the data array. This increases space efficiency
@@ -34,16 +33,16 @@
  * This means that the value of the front can be both smaller and larger than
  * the one for the back.
  *
- * We can determine the amount of elements in the queue by examining the difference
- * between the front and back value.
+ * We can determine the amount of elements in the queue by examining the
+ * difference between the front and back value.
  *
  * The queue is empty exactly when the front and back values are equal.
  */
 typedef struct Queue {
-    int *array;
-    int back;
-    int front;
-    int size;
+  int *array;
+  int back;
+  int front;
+  int size;
 } Queue;
 
 /**
@@ -51,7 +50,7 @@ typedef struct Queue {
  * @param s Size of the queue
  * @return Pointer to queue
  */
-Queue *new_queue (int s);
+Queue *new_queue(int s);
 
 /**
  * Checks whether a queue is empty.
@@ -66,13 +65,14 @@ int is_empty_queue(Queue *q);
 void queue_empty_error();
 
 /**
- * Prints an error and aborts the program when initializing a queue with invalid size.
+ * Prints an error and aborts the program when initializing a queue with invalid
+ * size.
  */
 void invalid_size_error();
 
 /**
- * Doubles the size of a queue. This function is called when enqueueing more items
- * than possible given the original size of the queue.
+ * Doubles the size of a queue. This function is called when enqueueing more
+ * items than possible given the original size of the queue.
  * @param q Pointer to the queue.
  */
 void double_queue_size(Queue *q);

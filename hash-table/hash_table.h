@@ -1,8 +1,11 @@
+// SPDX-License-Identifier: MIT
+// SPDX-FileCopyrightText: 2023 Felix Zailskas <felixzailskas@gmail.com>
+
 #ifndef HASH_TABLE_H
 #define HASH_TABLE_H
 
-#include <stdlib.h>
 #include <stdio.h>
+#include <stdlib.h>
 #include <string.h>
 
 /**
@@ -18,9 +21,9 @@ int TABLE_SIZE = 100000;
  *  a link to the next pair in the same slot
  */
 typedef struct Pair {
-    char key[50];
-    int val;
-    struct Pair *next;
+  char key[50];
+  int val;
+  struct Pair *next;
 } Pair;
 
 /**
@@ -29,7 +32,7 @@ typedef struct Pair {
  *  an array of Pair pointers
  */
 typedef struct HashTable {
-    Pair **pairs;
+  Pair **pairs;
 } HashTable;
 
 /**
@@ -53,7 +56,8 @@ Pair *new_pair(char *key, int value);
 void free_pair(Pair *pair);
 
 /**
- * Frees the allocated memory of a hashtable and all key-value pairs stored in it.
+ * Frees the allocated memory of a hashtable and all key-value pairs stored in
+ * it.
  * @param table Pointer to the hashtable to free
  */
 void free_hash_table(HashTable *table);
@@ -86,6 +90,5 @@ int get_value(HashTable *table, char *key);
  * @param table Pointer to the hashtable to be printed
  */
 void print_hash_table(HashTable *table);
-
 
 #endif

@@ -1,13 +1,12 @@
-//
-// Created by Felix Zailskas on 25.06.21.
-//
+// SPDX-License-Identifier: MIT
+// SPDX-FileCopyrightText: 2023 Felix Zailskas <felixzailskas@gmail.com>
 
 #ifndef STACK_H
 #define STACK_H
 
-#include <stdlib.h>
-#include <stdio.h>
 #include <assert.h>
+#include <stdio.h>
+#include <stdlib.h>
 
 /**
  * A Stack storing Integers.
@@ -15,27 +14,29 @@
  * points to the next free position in the array of values.
  *
  * For pushing on the stack we store the value on the current free position of
- * the array and increase the top value by one. In the case that the array is full
- * we double the amount of elements we can store. This is done by reallocating
- * the array with twice its size.
+ * the array and increase the top value by one. In the case that the array is
+ * full we double the amount of elements we can store. This is done by
+ * reallocating the array with twice its size.
  *
  * For popping from the stack we reduce the top value by one and then return the
  * value at the current position of the array. Since the top value now points to
  * the position of the value we have returned it is marked as a free position so
  * the stack does not store the values anymore.
  *
- * For peeking we do the same process as in popping without reducing the value of
- * top. We only return the value stored at one position lower than the top value.
+ * For peeking we do the same process as in popping without reducing the value
+ * of top. We only return the value stored at one position lower than the top
+ * value.
  *
- * The size of the stack can be determined by examining the value of the top variable.
+ * The size of the stack can be determined by examining the value of the top
+ * variable.
  *
  * The Stack is empty exactly when the top value is 0 (points to the first entry
  * of the array).
  */
 typedef struct Stack {
-    int *array;
-    int top;
-    int size;
+  int *array;
+  int top;
+  int size;
 } Stack;
 
 /**
@@ -57,7 +58,8 @@ void double_stack_size(Stack *s);
 void stack_empty_error();
 
 /**
- * Prints an error and aborts the program when initializing a Stack with invalid size.
+ * Prints an error and aborts the program when initializing a Stack with invalid
+ * size.
  */
 void invalid_size_error();
 
@@ -102,4 +104,4 @@ int amt_elements(Stack *s);
  */
 void destroy_stack(Stack *s);
 
-#endif //DATA_STRUCTURES_STACK_H
+#endif // DATA_STRUCTURES_STACK_H

@@ -52,8 +52,9 @@ Mkfile.old
 dkms.conf
 
 # MacOS
-.DS_Store
+**/.DS_Store
 .AppleDouble
 .LSOverride
 
 .idea
+.vscode
